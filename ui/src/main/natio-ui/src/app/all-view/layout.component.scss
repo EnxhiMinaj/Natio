@@ -23,12 +23,12 @@
 }
 
 #layout /deep/ .mat-card {
-  background: #48bdb8;
+
   border-radius: 0px !important;
 }
 
 #layout /deep/ .mat-card-title, #layout /deep/ .mat-card-subtitle {
-  color: white;
+
 }
 
 /*
@@ -39,6 +39,7 @@ main {
 
   display: flex;
   flex-direction: column;
+  padding: 20px;
 
   // Select all direct descendants only of the <main> element
   // that are not <router-outlet> elements:

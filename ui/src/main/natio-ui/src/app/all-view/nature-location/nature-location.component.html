@@ -1,0 +1,33 @@
+<div id="nature-location">
+  <h3 class="name">Nuuksio</h3>
+  <p class="nature-location-loc"><mat-icon>location_on</mat-icon>Uusimaa, Finland</p>
+  <p class="title-desc">National Park</p>
+
+  <mat-divider></mat-divider>
+
+  <mat-form-field>
+    <input [matDatepicker]="myDatepickerValidFrom" matInput name="startDate" placeholder="Date">
+    <mat-datepicker-toggle [for]="myDatepickerValidFrom" matSuffix></mat-datepicker-toggle>
+    <mat-datepicker #myDatepickerValidFrom touchUi></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input [ngxTimepicker]="picker" matInput name="beginTime" placeholder="Start time">
+    <ngx-material-timepicker #picker></ngx-material-timepicker>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input [ngxTimepicker]="pickerTo" matInput name="endTime" placeholder="End time">
+    <ngx-material-timepicker #pickerTo></ngx-material-timepicker>
+  </mat-form-field>
+
+  <mat-card class="location-point-card">
+    <mat-card-header>
+      <mat-card-title>Pallas-Yllästunturi</mat-card-title>
+      <mat-card-subtitle>National Park</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="location-point-loc-wrapper">
+      <p class="location-point-loc"><mat-icon>location_on</mat-icon>Lapland, Finland</p>
+    </mat-card-content>
+  </mat-card>
+</div>

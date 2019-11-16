@@ -35,6 +35,7 @@ export class FooterComponent implements OnInit {
     let finalUrl = "/"+NATIO+  "/" + EXPLORE_TRAILS;
     this._router.navigateByUrl(finalUrl);
 }
+
   openMyPlans(){
       this._eventService.setHeader("My Plans");
 

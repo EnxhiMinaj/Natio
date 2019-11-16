@@ -31,10 +31,6 @@
   width: 20px;
 }
 
-.nature-location-loc{
-  color: #48bdb8;
-}
-
 .nature-location-loc-wrapper{
   float: right;
   margin-top: -15px;
@@ -46,4 +42,24 @@
 
 div.divider{
   margin-bottom: 10px;
+}
+
+#nature-location .name{
+  margin-bottom: 5px;
+  display: inline;
+}
+
+#nature-location p.nature-location-loc{
+  margin-top: 8px;
+  font-size: 12px;
+  float: right;
+}
+
+#nature-location .title-desc{
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.nature-location-loc{
+  color: #48bdb8;
 }

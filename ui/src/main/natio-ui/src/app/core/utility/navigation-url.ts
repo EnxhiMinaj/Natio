@@ -4,6 +4,7 @@ export const NATIO: string = 'natio';
 export const EXPLORE_TRAILS: string = 'home';
 export const MY_TRIPS: string = 'my-plans';
 export const SUGGESTIONS: string = 'suggestions';
+export const NATURE_LOCATION: string = 'nature-locations';
 export const CHATS: string = 'chats';
 export const CHARTS: string = 'charts';
 export const WALLET_URL: string = 'wallet';
