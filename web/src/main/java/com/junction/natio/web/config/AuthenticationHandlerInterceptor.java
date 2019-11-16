@@ -21,8 +21,8 @@ public class AuthenticationHandlerInterceptor extends HandlerInterceptorAdapter 
     private static List<String> authorizationFreeuriList = new ArrayList<>();
 
     static {
-        authorizationFreeuriList.add(WebResourceConstant.EMONEY.GET_EXPIRED_JOB);
-        authorizationFreeuriList.add(WebResourceConstant.EMONEY.GET_ACTIVE_JOB);
+        authorizationFreeuriList.add(WebResourceConstant.NATIO.GET_EXPIRED_JOB);
+        authorizationFreeuriList.add(WebResourceConstant.NATIO.GET_ACTIVE_JOB);
         authorizationFreeuriList.add(WebResourceConstant.UserManagement.UM_AUTHENTICATE);
         authorizationFreeuriList.add(WebResourceConstant.UserManagement.SIGN_UP);
         authorizationFreeuriList.add("/product");
@@ -36,7 +36,7 @@ public class AuthenticationHandlerInterceptor extends HandlerInterceptorAdapter 
     }
 
     @Autowired
-    private INatioToken emoneyToken;
+    private INatioToken natioToken;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -61,7 +61,7 @@ public class AuthenticationHandlerInterceptor extends HandlerInterceptorAdapter 
         }
 
         if (StringUtils.isNotNull(accessToken)) {
-            TokenUtils.setTokenModel(emoneyToken.parseToken(accessToken));
+            TokenUtils.setTokenModel(natioToken.parseToken(accessToken));
             System.out.println("TokenUtils.getTokenModel() = " + TokenUtils.getTokenModel().toString());
         }
 
