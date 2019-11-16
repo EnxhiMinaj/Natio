@@ -2,7 +2,7 @@ package com.junction.natio.core.controller;
 
 
 import com.junction.natio.core.constant.WebResourceConstant;
-import com.junction.natio.core.exception.EmoneyException;
+import com.junction.natio.core.exception.NatioException;
 import com.junction.natio.core.model.ResponseObj;
 import com.junction.natio.core.service.ICrudService;
 import com.junction.natio.core.utils.IBeanMapper;
@@ -56,7 +56,7 @@ public abstract class ControllerBase<Entity, Dto> {
     public ResponseEntity<ResponseObj> get(@PathVariable Long id) {
         Entity entity = (Entity) iCrudService.findOne(id);
         if (entity == null) {
-            throw new EmoneyException("Sorry!! No Records Found");
+            throw new NatioException("Sorry!! No Records Found");
         }
 
         return new ResponseEntity<>(new ResponseObj.ResponseObjBuilder().result(resBeanMapper.mapToDTO(entity)).message("Success").build(), HttpStatus.OK);
@@ -66,7 +66,7 @@ public abstract class ControllerBase<Entity, Dto> {
     public ResponseEntity<ResponseObj> getAll() {
         List<Entity> entities = iCrudService.findAll();
         if (entities.size() == 0) {
-            throw new EmoneyException("Sorry!! No Records Found");
+            throw new NatioException("Sorry!! No Records Found");
         }
         return new ResponseEntity<>(new ResponseObj.ResponseObjBuilder().result(resBeanMapper.mapToDTO(entities)).message("Success").build(), HttpStatus.OK);
     }

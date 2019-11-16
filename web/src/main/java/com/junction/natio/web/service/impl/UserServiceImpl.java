@@ -1,7 +1,7 @@
 package com.junction.natio.web.service.impl;
 
 
-import com.junction.natio.core.exception.EmoneyException;
+import com.junction.natio.core.exception.NatioException;
 import com.junction.natio.core.security.ImatraEncoder;
 import com.junction.natio.core.service.impl.CrudServiceImpl;
 import com.junction.natio.core.utils.SecurityUtils;
@@ -50,7 +50,7 @@ public class UserServiceImpl extends CrudServiceImpl<UserEntity, Long> implement
         if (userToAuthenticate != null) {
             if (this.imatraEncoder.match(userEntity.getPassword(), userToAuthenticate.getPassword())) {
                 if (!userToAuthenticate.getStatus())
-                    throw new EmoneyException("User has been deactivated. Please contact your administrator.");
+                    throw new NatioException("User has been deactivated. Please contact your administrator.");
                 return userToAuthenticate;
             }
         }
@@ -72,7 +72,7 @@ public class UserServiceImpl extends CrudServiceImpl<UserEntity, Long> implement
             userRepository.update(umUserEntity);
             return true;
         }
-        throw new EmoneyException("Old Password Didn't match.");
+        throw new NatioException("Old Password Didn't match.");
     }
 
     @Override

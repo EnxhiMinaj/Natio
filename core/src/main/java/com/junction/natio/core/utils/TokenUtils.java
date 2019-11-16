@@ -9,13 +9,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class TokenUtils {
 
-    private static TokenModel emoneyTokenModel;
+    private static TokenModel natioTokenModel;
 
     public static TokenModel getTokenModel() {
-        return emoneyTokenModel;
+        return natioTokenModel;
     }
 
-    public static void setTokenModel(final TokenModel emoneyTokenModel) {
-        TokenUtils.emoneyTokenModel = emoneyTokenModel;
+    public static void setTokenModel(final TokenModel natioTokenModel) {
+        TokenUtils.natioTokenModel = natioTokenModel;
     }
 }

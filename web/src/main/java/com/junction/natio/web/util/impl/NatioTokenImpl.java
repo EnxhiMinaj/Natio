@@ -1,6 +1,6 @@
 package com.junction.natio.web.util.impl;
 
-import com.junction.natio.core.exception.EmoneyException;
+import com.junction.natio.core.exception.NatioException;
 import com.junction.natio.core.model.TokenModel;
 import com.junction.natio.core.utils.DateUtils;
 import com.junction.natio.web.model.UserEntity;
@@ -59,7 +59,7 @@ public class NatioTokenImpl implements INatioToken {
             tokenInfoModel.setEmail(claims.get("email").toString());
         } catch (Exception e) {
             e.printStackTrace();
-            throw new EmoneyException("Unauthorized access, cause: " + e.getCause() + ", message: " + e.getMessage());
+            throw new NatioException("Unauthorized access, cause: " + e.getCause() + ", message: " + e.getMessage());
         }
         return tokenInfoModel;
     }
