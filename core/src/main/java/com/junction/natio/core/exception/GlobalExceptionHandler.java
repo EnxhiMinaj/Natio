@@ -141,12 +141,12 @@ public class GlobalExceptionHandler {
      * @param e the exception not handled by other exception handler methods
      * @return {@link ResponseObj} which contains the error message and response status with JSON format
      */
-    @ExceptionHandler(EmoneyException.class)
+    @ExceptionHandler(NatioException.class)
     public ResponseEntity<ResponseObj> dracException(RuntimeException e) {
         e.printStackTrace();
         Object data = null;
-        if (e instanceof EmoneyException) {
-            data = ((EmoneyException) e).getData();
+        if (e instanceof NatioException) {
+            data = ((NatioException) e).getData();
         }
         ResponseObj responseObj = new ResponseObj.ResponseObjBuilder()
                 .message(e.getMessage())

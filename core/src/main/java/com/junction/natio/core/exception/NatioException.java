@@ -8,14 +8,14 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class EmoneyException extends RuntimeException {
+public class NatioException extends RuntimeException {
     private Object data;
 
-    public EmoneyException(String message) {
+    public NatioException(String message) {
         this(message, null);
     }
 
-    public EmoneyException(String message, Object data) {
+    public NatioException(String message, Object data) {
         super(message);
         this.data = data;
     }

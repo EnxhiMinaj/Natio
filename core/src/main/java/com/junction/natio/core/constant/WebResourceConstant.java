@@ -43,45 +43,14 @@ public class WebResourceConstant {
         String UM_AUTHENTICATE = "/auth";
         String CHANGE_PASSWORD = "/chhangepassword";
         String EMAIL = "/email";
-        String GET_PROFILE_DETAIL = "/profile";
         String SIGN_UP = "/sign-up";
-        String GET_PROFILE = "/profile";
-        String MY_DATA = "/my-data";
-        String CHANGE_STATUS = "/change-status/{userId}";
-        String ADD_CREDITS = "/add-credits";
-        String GET_APP_USERS = "/app-users";
 
 
     }
 
-    public enum Status {PENGING, ACCEPTED, DENIED}
-    public interface EMONEY {
-        String EMONEY_BASE = BASE_API + "/emoney";
-        String EMONEY_ADMIN = EMONEY_BASE + "/admin";
-        String USER = EMONEY_BASE + "/user";
-        String USER_RATING = EMONEY_BASE + "/user-rating";
-        String JOB = EMONEY_BASE + "/job";
-        String GET_ACTIVE_JOB = "/active-job";
-        String GET_EXPIRED_JOB = "/expired-job";
-        String GET_MY_JOBS = "/my-jobs";
-        String GET_PERSONAL_RATINGS = "/my-ratings";
-        String GET_WORKER_RATINGS = "/worker-ratings";
-        String BENEFIT = EMONEY_BASE + "/benefit";
-        String SAVE_BENEFIT = "/save-benefit";
-        String UPDATE_BENEFIT = "/update-benefit";
-        String CREDITS = EMONEY_BASE + "/credits";
-        String SAVE_JOB = "/save-job";
-        String APPLY_JOB = "/apply-job";
-        String CANCEL_JOB = "/cancel";
-        String ACCEPT_JOB = "/accept-applicant";
-        String REJECT_JOB = "/reject-applicant";
-        String GET_ALL_APPLIED_JOB = "/get-all-applied-job/{jobId}";
-        String GET_APPLIED_JOB = "/get-applied-job/{jobId}";
-        String PAY = "/pay";
-        String TRANSFER = "/transfer";
-        String PAY_DETAILS = "/payment-detail";
-        String MY_WALLET = "/my-wallet";
-
+    public interface NATIO {
+        String NATIO_BASE = BASE_API + "/natio";
+        String USER = NATIO_BASE + "/user";
 
     }
 

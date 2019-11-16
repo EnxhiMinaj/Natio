@@ -11,8 +11,5 @@ public class UserRequestDto extends RequestDtoBase {
     private String name;
     private String email;
     private String password;
-    private Integer age;
-    private String skill;
-    private Boolean isAdmin;
 
 }

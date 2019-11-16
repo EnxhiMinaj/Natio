@@ -1,7 +1,7 @@
 package com.junction.natio.web.service.impl;
 
 
-import com.junction.natio.core.exception.EmoneyException;
+import com.junction.natio.core.exception.NatioException;
 import com.junction.natio.core.security.ImatraEncoder;
 import com.junction.natio.core.service.impl.CrudServiceImpl;
 import com.junction.natio.core.utils.SecurityUtils;
@@ -50,25 +50,13 @@ public class UserServiceImpl extends CrudServiceImpl<UserEntity, Long> implement
         if (userToAuthenticate != null) {
             if (this.imatraEncoder.match(userEntity.getPassword(), userToAuthenticate.getPassword())) {
                 if (!userToAuthenticate.getStatus())
-                    throw new EmoneyException("User has been deactivated. Please contact your administrator.");
+                    throw new NatioException("User has been deactivated. Please contact your administrator.");
                 return userToAuthenticate;
             }
         }
         return null;
     }
 
-    @Override
-    public Boolean changeStatus(Long id) {
-        return this.userRepository.changeStatus(id);
-    }
-
-    @Override
-    public Boolean addCredits(Long userId, Double credits) {
-        UserEntity user = this.userRepository.findOne(userId);
-        user.setBalanceCredits(user.getBalanceCredits()+credits);
-        super.update(user);
-        return true;
-    }
 
     @Override
     public List<UserEntity> getAppUsers() {
@@ -84,14 +72,7 @@ public class UserServiceImpl extends CrudServiceImpl<UserEntity, Long> implement
             userRepository.update(umUserEntity);
             return true;
         }
-        throw new EmoneyException("Old Password Didn't match.");
-    }
-
-
-
-    @Override
-    public UserEntity findByWalletId(String walletId) {
-        return this.userRepository.findByWalletId(walletId);
+        throw new NatioException("Old Password Didn't match.");
     }
 
     @Override

@@ -1,6 +1,6 @@
 package com.junction.natio.core.utils;
 
-import com.junction.natio.core.exception.EmoneyException;
+import com.junction.natio.core.exception.NatioException;
 import com.junction.natio.core.model.FileInfoModel;
 import org.apache.commons.io.IOUtils;
 
@@ -89,10 +89,10 @@ public class MultiPartFileUtils {
             return true;
         } catch (NoSuchFileException noSuchFileException) {
             noSuchFileException.printStackTrace();
-            throw new EmoneyException("There is no such file to rename.");
+            throw new NatioException("There is no such file to rename.");
         } catch (IOException e) {
             e.printStackTrace();
-            throw new EmoneyException("File IO Exception. Check Server Log");
+            throw new NatioException("File IO Exception. Check Server Log");
         }
 
     }
