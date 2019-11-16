@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Router} from "@angular/router";
+import {EXPLORE_TRAILS, NATIO, NATURE_LOCATION} from "../../core/utility/navigation-url";
 
 
 
@@ -23,7 +24,10 @@ export class ExploreTrailsComponent implements OnInit {
 
   }
 
-
+  openNatureLocation(){
+    let finalUrl = "/"+NATIO+  "/" + NATURE_LOCATION;
+    this._router.navigateByUrl(finalUrl);
+  }
 
 
 }
