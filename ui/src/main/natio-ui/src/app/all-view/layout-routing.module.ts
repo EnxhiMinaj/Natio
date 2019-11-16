@@ -1,7 +1,7 @@
 import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
 import {LayoutComponent} from "./layout.component";
-import {CHATS, MAIN_URL, MY_TRIPS, SUGGESTIONS} from "../core/utility/navigation-url";
+import {CHARTS, CHATS, MAIN_URL, MY_TRIPS, SUGGESTIONS} from "../core/utility/navigation-url";
 
 const routes: Routes = [
   {
@@ -13,6 +13,7 @@ const routes: Routes = [
       {path: MY_TRIPS, loadChildren: './my-trips/my-trips.module#MyTripsModule'},
       {path: SUGGESTIONS, loadChildren: './suggestions/suggestions.module#SuggestionsModule'},
       {path: CHATS, loadChildren: './chats/chats.module#ChatsModule'},
+      {path: CHARTS, loadChildren: './charts/charts.module#ChartsGraphModule'},
 
     ]
   }

@@ -5,6 +5,7 @@ export const EXPLORE_TRAILS: string = 'home';
 export const MY_TRIPS: string = 'my-plans';
 export const SUGGESTIONS: string = 'suggestions';
 export const CHATS: string = 'chats';
+export const CHARTS: string = 'charts';
 export const WALLET_URL: string = 'wallet';
 export const PROFILE_URL: string = 'profile';
 export const ADMIN_URL: string = 'admin';
