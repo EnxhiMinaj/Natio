@@ -12,11 +12,5 @@ import java.util.List;
 public class UserResponseDto extends ResponseDtoBase {
     private String name;
     private String email;
-    private Integer age;
-    private String skill;
-    private Boolean isAdmin;
-    private String walletId;
-    private Boolean status;
-    private Double balanceCredits;
 
 }

@@ -57,18 +57,6 @@ public class UserServiceImpl extends CrudServiceImpl<UserEntity, Long> implement
         return null;
     }
 
-    @Override
-    public Boolean changeStatus(Long id) {
-        return this.userRepository.changeStatus(id);
-    }
-
-    @Override
-    public Boolean addCredits(Long userId, Double credits) {
-        UserEntity user = this.userRepository.findOne(userId);
-        user.setBalanceCredits(user.getBalanceCredits()+credits);
-        super.update(user);
-        return true;
-    }
 
     @Override
     public List<UserEntity> getAppUsers() {
@@ -85,13 +73,6 @@ public class UserServiceImpl extends CrudServiceImpl<UserEntity, Long> implement
             return true;
         }
         throw new EmoneyException("Old Password Didn't match.");
-    }
-
-
-
-    @Override
-    public UserEntity findByWalletId(String walletId) {
-        return this.userRepository.findByWalletId(walletId);
     }
 
     @Override

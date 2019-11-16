@@ -12,8 +12,6 @@ import java.util.List;
 public interface IUserRepository extends ICrudRepository<UserEntity, Long> {
     UserEntity findByEmail(String email);
 
-    UserEntity findByWalletId(String walletId);
-
     Boolean changeStatus(Long id);
 
     List<UserEntity> getAppUsers();
