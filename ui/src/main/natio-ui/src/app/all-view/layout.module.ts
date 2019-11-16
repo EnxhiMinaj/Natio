@@ -4,16 +4,16 @@ import {LayoutRoutingModule} from "./layout-routing.module";
 import {LayoutComponent} from "./layout.component";
 import {CustomMaterialModule} from "../core/module/CustomMaterialModule";
 import {SessionStorageService} from "../core/lib/services/session-storage.service";
-import {HeaderComponent} from "./layout-structure/header/header.component";
-import {FooterComponent} from "./layout-structure/footer/footer.component";
+import {LayoutStructureModule} from "./layout-structure/layout-structure/layout-structure.module";
 
 @NgModule({
   imports: [
     CommonModule,
     LayoutRoutingModule,
-    CustomMaterialModule
+    CustomMaterialModule,
+    LayoutStructureModule
   ],
-  declarations: [LayoutComponent, HeaderComponent, FooterComponent],
+  declarations: [LayoutComponent],
   providers: [SessionStorageService]
 })
 export class LayoutModule {

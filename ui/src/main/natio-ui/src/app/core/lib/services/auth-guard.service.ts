@@ -1,7 +1,7 @@
 import {CanLoad, Route, Router} from "@angular/router";
 import {SessionStorageService} from "./session-storage.service";
 import {Injectable} from "@angular/core";
-import {ICREDIT_URL} from "../../utility/navigation-url";
+import {NATIO} from "../../utility/navigation-url";
 import {EventService} from "./event.service";
 
 /**
@@ -24,7 +24,7 @@ export class AuthGuard implements CanLoad {
       return true;
     } else {
       // window.location.href = baseHref + "/login";
-      this._router.navigate(['login'], {queryParams: {returnUrl: "/" + ICREDIT_URL + "/" + url}});
+      this._router.navigate(['login'], {queryParams: {returnUrl: "/" + NATIO + "/" + url}});
 
     }
     return false;
