@@ -1,8 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Router} from "@angular/router";
-
-
-
+import {LOCATION_POINT_DETAILS, NATIO, NATURE_LOCATION} from "../../core/utility/navigation-url";
 
 @Component({
   selector: 'app-explore-trails',
@@ -23,7 +21,10 @@ export class SuggestionsComponent implements OnInit {
 
   }
 
-
+  openLocationPointDetails(){
+    let finalUrl = "/"+NATIO+  "/" + LOCATION_POINT_DETAILS;
+    this._router.navigateByUrl(finalUrl);
+  }
 
 
 }
