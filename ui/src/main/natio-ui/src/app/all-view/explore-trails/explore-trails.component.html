@@ -1,0 +1,48 @@
+<div id="explore-trails">
+
+  <mat-form-field class="select-region">
+    <mat-label>Select a region</mat-label>
+    <select matNativeControl required>
+      <option value="helsinki">Helsinki Region</option>
+      <option value="lapland">Lapland</option>
+    </select>
+  </mat-form-field>
+
+  <!--<div>
+    <select id="select-region">
+      <option disabled value="">Select a region</option>
+      <option value="helsinki">Helsinki Region</option>
+      <option value="lapland">Lapland</option>
+    </select>
+  </div>-->
+
+   <mat-form-field class="example-full-width search-field">
+      <input matInput placeholder="Search">
+    </mat-form-field>
+    <button mat-mini-fab class="search-btn">
+      <mat-icon>search</mat-icon>
+    </button>
+
+  <div class="divider"></div>
+
+  <mat-card class="nature-location-card" (click)="openNatureLocation()">
+    <mat-card-header>
+      <mat-card-title>Nuuksio</mat-card-title>
+      <mat-card-subtitle>National Park</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="nature-location-loc-wrapper">
+      <p class="nature-location-loc"><mat-icon>location_on</mat-icon>Uusimaa, Finland</p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="nature-location-card">
+    <mat-card-header>
+      <mat-card-title>Pallas-Yllästunturi</mat-card-title>
+      <mat-card-subtitle>National Park</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="nature-location-loc-wrapper">
+      <p class="nature-location-loc"><mat-icon>location_on</mat-icon>Lapland, Finland</p>
+    </mat-card-content>
+  </mat-card>
+
+</div>

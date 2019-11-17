@@ -15,13 +15,8 @@ public interface IUserService extends ICrudService<UserEntity, Long> {
     Boolean changePassword(String oldPassword, String newPassword, Long userId);
 
 
-    UserEntity findByWalletId(String walletId);
-
     UserEntity findByEmail(String email);
 
-    Boolean changeStatus(Long UserId);
-
-    Boolean addCredits(Long UserId, Double credits);
 
     List<UserEntity> getAppUsers();
 }

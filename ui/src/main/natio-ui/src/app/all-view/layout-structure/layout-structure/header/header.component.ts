@@ -1,5 +1,6 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {EventService} from "../../../core/lib/services/event.service";
+import {EventService} from "../../../../core/lib/services/event.service";
+
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   sideNavbar;
   subscribeEvent: any;
   @Input("headerTitle")
-  headerTitle: string = "Find Job";
+  headerTitle: string = "Explore Trails";
 
   constructor(private _eventService: EventService) {
   }
@@ -26,5 +27,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.subscribeEvent.unsubscribe();
   }
 
+  openSideNavBar(){
+    this.sideNavbar.open();
+  }
 
 }
