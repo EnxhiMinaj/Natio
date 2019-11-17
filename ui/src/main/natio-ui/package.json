@@ -20,7 +20,6 @@
     "@angular/material": "^7.3.3",
     "@angular/platform-browser": "~7.2.10",
     "@angular/platform-browser-dynamic": "~7.2.10",
-    "@angular/pwa": "^0.13.4",
     "@angular/router": "~7.2.10",
     "@angular/service-worker": "~7.2.10",
     "@types/mapbox-gl": "^1.5.2",
