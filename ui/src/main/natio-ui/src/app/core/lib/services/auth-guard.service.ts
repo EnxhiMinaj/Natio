@@ -24,7 +24,7 @@ export class AuthGuard implements CanLoad {
       return true;
     } else {
       // window.location.href = baseHref + "/login";
-      this._router.navigate(['login'], {queryParams: {returnUrl: "/" + NATIO + "/" + url}});
+      this._router.navigate(['login'], {queryParams: {returnUrl: "/" + NATIO + "/" + 'home'}});
 
     }
     return false;
