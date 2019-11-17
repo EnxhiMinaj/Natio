@@ -12,9 +12,7 @@ import {Router} from "@angular/router";
 export class MyTripsComponent implements OnInit {
 
 
-  constructor(
-              private _router: Router,
-
+  constructor(private _router: Router,
   ) {
 
   }

@@ -2,8 +2,11 @@ package com.junction.natio.core.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 /**
 
@@ -20,6 +23,12 @@ public class EntityBase extends ModelBase {
     @Version
     @Column(name = "version")
     private Long version = 0L;
+
+    @Column(updatable = false)
+    @CreationTimestamp
+    private LocalDateTime createdAt;
+    @UpdateTimestamp
+    private LocalDateTime updatedAt;
 
 
 }
