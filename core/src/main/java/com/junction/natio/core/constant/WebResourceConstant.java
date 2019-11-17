@@ -51,6 +51,9 @@ public class WebResourceConstant {
     public interface NATIO {
         String NATIO_BASE = BASE_API + "/natio";
         String USER = NATIO_BASE + "/user";
+        String LOCATION = NATIO_BASE + "/location";
+        String RECOMMENDER = NATIO_BASE + "/recommender";
+        String GET_CHART_DATA = "/data";
 
     }
 

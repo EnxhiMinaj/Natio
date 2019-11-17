@@ -5,7 +5,7 @@ import lombok.Setter;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
- * Created by Anil Kumal on 02/02/2019.
+
  */
 @Getter
 @Setter

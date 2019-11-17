@@ -4,7 +4,7 @@ import {Observable} from "rxjs";
 import {ApiConstant} from "../../utility/api.constant";
 
 /**
- * Created by Anil Kumal on 2/2/2019.
+
  */
 @Injectable()
 export class HttpService {

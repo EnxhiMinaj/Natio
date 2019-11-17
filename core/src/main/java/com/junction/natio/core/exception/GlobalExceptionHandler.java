@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
- * Created by Anil Kumal on 02/02/2019.
+
  */
 @RestControllerAdvice
 public class GlobalExceptionHandler {

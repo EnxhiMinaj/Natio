@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * Created by Anil Kumal on 02/02/2019.
+
  */
 @Transactional
 @Service
@@ -30,38 +30,17 @@ public class UserServiceImpl extends CrudServiceImpl<UserEntity, Long> implement
     }
 
     @Override
-    public UserEntity save(UserEntity entity) {
-        String encodedPassword = imatraEncoder.encrypt(entity.getPassword());
-        entity.setPassword(encodedPassword);
-        if(entity.getIsAdmin() == null) {
-            entity.setIsAdmin(false);
-        }
-        entity.setStatus(true);
-        entity.setBalanceCredits(1000.00);
-        entity.setReserveCredits(0.00);
-        entity.setWalletId(SecurityUtils.generateRandomString(4, 8).toUpperCase());
-        return super.save(entity);
-    }
-
-    @Override
     public UserEntity authenticate(UserEntity userEntity) {
         System.out.println("encoded password: " + imatraEncoder.encrypt("admin"));
         UserEntity userToAuthenticate = this.userRepository.findByEmail(userEntity.getEmail());
         if (userToAuthenticate != null) {
             if (this.imatraEncoder.match(userEntity.getPassword(), userToAuthenticate.getPassword())) {
-                if (!userToAuthenticate.getStatus())
-                    throw new NatioException("User has been deactivated. Please contact your administrator.");
                 return userToAuthenticate;
             }
         }
         return null;
     }
 
-
-    @Override
-    public List<UserEntity> getAppUsers() {
-       return this.userRepository.getAppUsers();
-    }
 
     @Override
     public Boolean changePassword(String oldPassword, String newPassword, Long userId) {

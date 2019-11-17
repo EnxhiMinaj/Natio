@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 /**
- * Created by Anil Kumal on 02/02/2019.
+
  */
 @RestController
 @RequestMapping(UserController.BASE_URL)

@@ -1,7 +1,7 @@
 package com.junction.natio.core.constant;
 
 /**
- * Created by Anil Kumal on 02/02/2019.
+
  */
 public final class ServiceURIConstant extends WebResourceConstant {
     public static final String ROOT_HOST = "http://localhost:8080";

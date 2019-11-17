@@ -4,7 +4,7 @@ import com.junction.natio.core.model.TokenModel;
 import org.springframework.stereotype.Component;
 
 /**
- * Created by Anil Kumal on 02/02/2019.
+
  */
 @Component
 public class TokenUtils {

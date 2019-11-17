@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by Anil Kumal on 02/02/2019.
+
  */
 public abstract class RestTemplateControllerBase<Dto> {
     protected String serviceURI;

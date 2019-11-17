@@ -5,7 +5,7 @@ import {NATIO} from "../../utility/navigation-url";
 import {EventService} from "./event.service";
 
 /**
- * Created by Anil Kumal on 2/2/2019.
+
  */
 @Injectable()
 export class AuthGuard implements CanLoad {

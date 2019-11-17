@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * Created by Anil Kumal on 02/02/2019.
+
  */
 public interface ICrudService<T, ID extends Serializable> {
     /**

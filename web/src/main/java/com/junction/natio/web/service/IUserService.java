@@ -16,7 +16,4 @@ public interface IUserService extends ICrudService<UserEntity, Long> {
 
 
     UserEntity findByEmail(String email);
-
-
-    List<UserEntity> getAppUsers();
 }

@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 /**
- * Created by Anil Kumal on 02/02/2019.
+
  */
 @Getter
 @Setter

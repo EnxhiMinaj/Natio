@@ -2,6 +2,7 @@ package com.junction.natio.web.util;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public interface IFileHelper {
     /**
@@ -9,5 +10,5 @@ public interface IFileHelper {
      *
      * @return file
      */
-    File getVisitorsData() throws FileNotFoundException;
+    File getVisitorsData() throws IOException;
 }

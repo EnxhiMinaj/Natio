@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 
 /**
- * Created by Anil Kumal on 2/2/2019.
+
  */
 @Injectable()
 export class CustomValidator {

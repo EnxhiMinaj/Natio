@@ -4,7 +4,7 @@ import {Observable} from "rxjs";
 import {SessionStorageService} from "../services/session-storage.service";
 
 /**
- * Created by Anil Kumal on 2/2/2019.
+
  */
 @Injectable()
 export class RequestInterceptor implements HttpInterceptor {

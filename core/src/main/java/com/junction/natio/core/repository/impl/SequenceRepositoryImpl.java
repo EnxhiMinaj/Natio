@@ -6,7 +6,7 @@ import com.junction.natio.core.repository.ISequenceRepository;
 import org.springframework.stereotype.Repository;
 
 /**
- * Created by Anil Kumal on 02/02/2019.
+
  */
 @Repository
 public class SequenceRepositoryImpl extends CrudRepositoryImpl<SequenceEntity, Long> implements ISequenceRepository {
