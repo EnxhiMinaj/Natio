@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by Anil Kumal on 02/02/2019.
+
  */
 public class AppCorsFilter implements Filter {
     @Override

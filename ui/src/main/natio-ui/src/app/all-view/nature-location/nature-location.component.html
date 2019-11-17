@@ -5,29 +5,59 @@
 
   <mat-divider></mat-divider>
 
-  <mat-form-field>
+  <mat-form-field class="pick-date">
     <input [matDatepicker]="myDatepickerValidFrom" matInput name="startDate" placeholder="Date">
     <mat-datepicker-toggle [for]="myDatepickerValidFrom" matSuffix></mat-datepicker-toggle>
     <mat-datepicker #myDatepickerValidFrom touchUi></mat-datepicker>
   </mat-form-field>
 
-  <mat-form-field>
-    <input [ngxTimepicker]="picker" matInput name="beginTime" placeholder="Start time">
-    <ngx-material-timepicker #picker></ngx-material-timepicker>
-  </mat-form-field>
+  <div class="time-pickers">
+    <mat-form-field class="pick-start-time">
+      <input [ngxTimepicker]="picker" matInput name="beginTime" placeholder="Start time">
+      <ngx-material-timepicker #picker></ngx-material-timepicker>
+    </mat-form-field>
 
-  <mat-form-field>
-    <input [ngxTimepicker]="pickerTo" matInput name="endTime" placeholder="End time">
-    <ngx-material-timepicker #pickerTo></ngx-material-timepicker>
-  </mat-form-field>
+    <mat-form-field class="pick-end-time">
+      <input [ngxTimepicker]="pickerTo" matInput name="endTime" placeholder="End time">
+      <ngx-material-timepicker #pickerTo></ngx-material-timepicker>
+    </mat-form-field>
+  </div>
 
-  <mat-card class="location-point-card">
-    <mat-card-header>
-      <mat-card-title>Pallas-Yllästunturi</mat-card-title>
-      <mat-card-subtitle>National Park</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content class="location-point-loc-wrapper">
-      <p class="location-point-loc"><mat-icon>location_on</mat-icon>Lapland, Finland</p>
-    </mat-card-content>
-  </mat-card>
+  <mat-divider style="margin-top:70px;"></mat-divider>
+
+  <p>Select the locations you want to visit:</p>
+
+  <div style="margin-top: 20px; display: table; width: 100%;">
+    <mat-checkbox></mat-checkbox>
+    <mat-card class="location-point-card">
+      <mat-card-header>
+        <mat-card-title>Haukankierros</mat-card-title>
+        <mat-card-subtitle>Hiking Trail</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content class="location-point-loc-wrapper">
+        <p class="location-point-loc"><mat-icon>access_time</mat-icon>2h</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div style="margin-top: 20px; display: table; width: 100%;">
+    <mat-checkbox></mat-checkbox>
+    <mat-card class="location-point-card">
+      <mat-card-header>
+        <mat-card-title>Korpinkierros</mat-card-title>
+        <mat-card-subtitle>Hiking Trail</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content class="location-point-loc-wrapper">
+        <p class="location-point-loc"><mat-icon>access_time</mat-icon>4h</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div style="text-align: center; margin-top: 30px; margin-bottom: 15px;">
+    <mat-slide-toggle>I want to find a Travel Buddy!</mat-slide-toggle>
+  </div>
+
+  <button mat-flat-button color="primary">Generate route</button>
+  <button mat-flat-button color="primary" style="margin-right: 10px;">Save</button>
+
 </div>

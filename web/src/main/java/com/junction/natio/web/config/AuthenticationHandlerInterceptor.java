@@ -21,16 +21,12 @@ public class AuthenticationHandlerInterceptor extends HandlerInterceptorAdapter 
     private static List<String> authorizationFreeuriList = new ArrayList<>();
 
     static {
-        authorizationFreeuriList.add(WebResourceConstant.NATIO.GET_EXPIRED_JOB);
-        authorizationFreeuriList.add(WebResourceConstant.NATIO.GET_ACTIVE_JOB);
         authorizationFreeuriList.add(WebResourceConstant.UserManagement.UM_AUTHENTICATE);
         authorizationFreeuriList.add(WebResourceConstant.UserManagement.SIGN_UP);
-        authorizationFreeuriList.add("/product");
-        authorizationFreeuriList.add("/category");
         authorizationFreeuriList.add("/user/create");
         authorizationFreeuriList.add("/upload");
+        authorizationFreeuriList.add("/recommender");
         authorizationFreeuriList.add("/display");
-        authorizationFreeuriList.add("/benefit");
         authorizationFreeuriList.add(WebResourceConstant.UserManagement.EMAIL);
 
     }
@@ -44,7 +40,8 @@ public class AuthenticationHandlerInterceptor extends HandlerInterceptorAdapter 
         if (request.getMethod().equalsIgnoreCase("OPTIONS")) {
             return true;
         }
-        String uri = request.getRequestURI();
+        return true;
+        /*String uri = request.getRequestURI();
         String accessToken;
         //String origin = request.getHeader("Origin");
         response.setHeader("Access-Control-Allow-Origin", "*");
@@ -56,7 +53,8 @@ public class AuthenticationHandlerInterceptor extends HandlerInterceptorAdapter 
         }
         accessToken = request.getHeader(WebResourceConstant.AUTHORIZATION_HEADER);
 
-        if (StringUtils.isNull(accessToken) && !isAuthFreeUri(uri) && uri.contains("/benefit/create")) {
+        if (StringUtils.isNull(accessToken) && !isAuthFreeUri(uri)) {
+
             throw new Exception("Unauthorized access!!");
         }
 
@@ -66,7 +64,7 @@ public class AuthenticationHandlerInterceptor extends HandlerInterceptorAdapter 
         }
 
 
-        return true;
+        return true;*/
     }
 
     private boolean isAuthFreeUri(String uri) {

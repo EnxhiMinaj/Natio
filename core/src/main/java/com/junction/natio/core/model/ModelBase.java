@@ -5,7 +5,7 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import java.io.Serializable;
 
 /**
- * Created by Anil Kumal on 02/02/2019.
+
  * <p>
  * Base Class for every class related to domain object, entity object response object, DTO etc.
  */

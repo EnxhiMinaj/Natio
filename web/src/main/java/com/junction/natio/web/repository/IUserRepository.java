@@ -7,13 +7,9 @@ import com.junction.natio.web.model.UserEntity;
 import java.util.List;
 
 /**
- * Created by Anil Kumal on 02/02/2019.
+
  */
 public interface IUserRepository extends ICrudRepository<UserEntity, Long> {
     UserEntity findByEmail(String email);
-
-    Boolean changeStatus(Long id);
-
-    List<UserEntity> getAppUsers();
 
 }

@@ -3,7 +3,7 @@ import {ApiConstant} from "../../utility/api.constant";
 import {Observable, Subject} from "rxjs";
 
 /**
- * Created by Anil Kumal on 2/2/2019.
+
  */
 @Injectable()
 export class FileService {

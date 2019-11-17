@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Created by Anil Kumal on 02/02/2019.
+
  */
 public class BeanMapperImpl<Entity, DTO> implements IBeanMapper<Entity, DTO> {
 

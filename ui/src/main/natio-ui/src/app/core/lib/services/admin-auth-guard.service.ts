@@ -4,7 +4,7 @@ import {Injectable} from "@angular/core";
 import {ADMIN_URL} from "../../utility/navigation-url";
 
 /**
- * Created by Anil Kumal on 2/2/2019.
+
  */
 @Injectable()
 export class AdminAuthGuardService implements CanLoad {

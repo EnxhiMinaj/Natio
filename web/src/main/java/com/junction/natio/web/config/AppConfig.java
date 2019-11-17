@@ -77,7 +77,7 @@ public class AppConfig {
         localContainerEntityManagerFactoryBean.setJpaVendorAdapter(jpaVendorAdapter());
         localContainerEntityManagerFactoryBean.setPackagesToScan("com.junction.natio");
         localContainerEntityManagerFactoryBean.setJpaPropertyMap(props);
-        localContainerEntityManagerFactoryBean.setPersistenceUnitName("EmoneyPersistenceUnit");
+        localContainerEntityManagerFactoryBean.setPersistenceUnitName("NatioPersistenceUnit");
         return localContainerEntityManagerFactoryBean;
     }
 

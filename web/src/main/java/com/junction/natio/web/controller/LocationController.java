@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(LocationController.BASE_URL)
 public class LocationController {
-    public static final String BASE_URL = WebResourceConstant.NATIO.USER;
+    public static final String BASE_URL = WebResourceConstant.NATIO.LOCATION;
 
 }
