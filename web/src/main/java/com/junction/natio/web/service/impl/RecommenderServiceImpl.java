@@ -5,46 +5,31 @@ import com.junction.natio.core.service.ICrudService;
 import com.junction.natio.core.service.impl.CrudServiceImpl;
 import com.junction.natio.web.dto.responseDto.ChartDataDto;
 import com.junction.natio.web.enums.ChartPeriods;
-import com.junction.natio.web.model.LocationPoint;
 import com.junction.natio.web.model.VisitorData;
-import com.junction.natio.web.service.ICityNatureAPIService;
 import com.junction.natio.web.service.IRecommenderService;
 import com.junction.natio.web.util.IFileHelper;
-import org.apache.poi.ss.usermodel.charts.ChartData;
 import org.springframework.stereotype.Service;
-import sun.reflect.generics.visitor.Visitor;
 
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
 
 @Service
 public class RecommenderServiceImpl implements IRecommenderService {
 
-    private ICityNatureAPIService cityNatureAPIService;
-    private List<VisitorData> visitorDataList = new ArrayList<>();
-    int sundayCount = 0;
-    int mondayCount = 0;
-    int tuesdayCount = 0;
-    int wednesdayCount = 0;
-    int thursdayCount = 0;
-    int fridayCount = 0;
-    int saturdayCount = 0;
+    private List<VisitorData> visitorData;
+    private IFileHelper fileHelper;
 
-    public RecommenderServiceImpl(ICityNatureAPIService cityNatureAPIService) {
-        this.cityNatureAPIService = cityNatureAPIService;
+    public RecommenderServiceImpl(IFileHelper fileHelper) {
+        this.fileHelper = fileHelper;
         this.getVisitorDataAPI();
     }
-    public List<VisitorData> getVisitorDataList() {
-        return visitorDataList;
-    }
     @Override
-    public ChartDataDto getVisitorData(String period) {
+    public ChartDataDto getVisitorData(String period, int hour, int day) {
         if (period.equalsIgnoreCase(ChartPeriods.DAILY.getChartPeriod())) {
-            return this.getDailyVisitorsData();
+            return this.getDailyVisitorsData(day);
         } else if (period.equalsIgnoreCase(ChartPeriods.HOURLY.getChartPeriod())) {
-            return this.getHourlyVisitorsData();
+            return this.getHourlyVisitorsData(hour, day);
         } else {
             return this.getMonthlyVisitorsData();
         }
@@ -56,159 +41,23 @@ public class RecommenderServiceImpl implements IRecommenderService {
     }
 
     @Override
-    public ChartDataDto getHourlyVisitorsData() {
+    public ChartDataDto getHourlyVisitorsData(int hour, int day) {
        return null;
     }
 
     @Override
-    public ChartDataDto getDailyVisitorsData() {
-        HashMap<String, Integer> dailyVisits = new HashMap<>();
-        for(VisitorData visitorData : visitorDataList) {
-            Calendar c = Calendar.getInstance();
-            Date date = Date.from( visitorData.getStartTime().atZone(ZoneId.systemDefault()).toInstant());
-            c.setTime(date);
-            int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
-
-            switch (dayOfWeek)  {
-                case 1:
-                    if (dailyVisits.containsKey("Sunday")) {
-                        dailyVisits.put("Sunday", dailyVisits.get("Sunday") + visitorData.getVisits());
-                    } else {
-                        dailyVisits.put("Sunday", visitorData.getVisits());
-                    }
-                    sundayCount++;
-                    break;
-                case 2:
-                    if (dailyVisits.containsKey("Monday")) {
-                        dailyVisits.put("Monday", dailyVisits.get("Monday") + visitorData.getVisits());
-                    } else {
-                        dailyVisits.put("Monday", visitorData.getVisits());
-                    }
-                    mondayCount++;
-                    break;
-                case 3:
-                    if (dailyVisits.containsKey("Tuesday")) {
-                        dailyVisits.put("Tuesday", dailyVisits.get("Tuesday") + visitorData.getVisits());
-                    } else {
-                        dailyVisits.put("Tuesday", visitorData.getVisits());
-                    }
-                    tuesdayCount++;
-                    break;
-                case 4:
-                    if (dailyVisits.containsKey("Wednesday")) {
-                        dailyVisits.put("Wednesday", dailyVisits.get("Wednesday") + visitorData.getVisits());
-                    } else {
-                        dailyVisits.put("Wednesday", visitorData.getVisits());
-                    }
-                    wednesdayCount++;
-                    break;
-                case 5:
-                    if (dailyVisits.containsKey("Thursday")) {
-                        dailyVisits.put("Thursday", dailyVisits.get("Thursday") + visitorData.getVisits());
-                    } else {
-                        dailyVisits.put("Thursday", visitorData.getVisits());
-                    }
-                    thursdayCount++;
-                    break;
-                case 6:
-                    if (dailyVisits.containsKey("Friday")) {
-                        dailyVisits.put("Friday", dailyVisits.get("Friday") + visitorData.getVisits());
-                    } else {
-                        dailyVisits.put("Friday", visitorData.getVisits());
-                    }
-                    fridayCount++;
-                    break;
-                case 7:
-                    if (dailyVisits.containsKey("Saturday")) {
-                        dailyVisits.put("Saturday", dailyVisits.get("Saturday") + visitorData.getVisits());
-                    } else {
-                        dailyVisits.put("Saturday", visitorData.getVisits());
-                    }
-                    saturdayCount++;
-                    break;
-                default:
-                    break;
-
-            }
-       }
-        dailyVisits = utilizeVisits(dailyVisits);
-        ChartDataDto response = new ChartDataDto();
-        response.setChartData(dailyVisits);
-        return response;
-    }
-
-    private HashMap<String, Integer> utilizeVisits(HashMap<String, Integer> dailyVisits) {
-        if (dailyVisits.containsKey("Sunday")) {
-            dailyVisits.put("Sunday", Math.round(dailyVisits.get("Sunday") / sundayCount));
-        }
-        if (dailyVisits.containsKey("Monday")) {
-            dailyVisits.put("Monday", Math.round(dailyVisits.get("Monday") / mondayCount));
-        }
-        if (dailyVisits.containsKey("Tuesday")) {
-            dailyVisits.put("Tuesday", Math.round(dailyVisits.get("Tuesday") / tuesdayCount));
-        }
-        if (dailyVisits.containsKey("Wednesday")) {
-            dailyVisits.put("Wednesday", Math.round(dailyVisits.get("Wednesday") / wednesdayCount));
-        }
-        if (dailyVisits.containsKey("Thursday")) {
-            dailyVisits.put("Thursday", Math.round(dailyVisits.get("Thursday") / thursdayCount));
-        }
-        if (dailyVisits.containsKey("Friday")) {
-            dailyVisits.put("Friday", Math.round(dailyVisits.get("Friday") / fridayCount));
-        }
-        if (dailyVisits.containsKey("Saturday")) {
-            dailyVisits.put("Saturday", Math.round(dailyVisits.get("Saturday") / saturdayCount));
-        }
-        return dailyVisits;
-
+    public ChartDataDto getDailyVisitorsData(int dayOfWeek) {
+       ChartDataDto dto = new ChartDataDto();
+       dto.setPeriod("test");
+       dto.setChartData(new HashMap<>());
+       return dto;
     }
 
     public void getVisitorDataAPI() {
-        List<String> allNatureLocation = cityNatureAPIService.getAllNatureLocation();
-        Random rand = new Random();
-        int minDay = (int) LocalDate.of(2019, 1, 1).toEpochDay();
-        int maxDay = (int) LocalDate.of(2019, 11, 1).toEpochDay();
-        long randomDay = minDay + rand.nextInt(maxDay - minDay);
-
-
-        for (int i = 0; i < 3; i++) {
-            if (allNatureLocation.size() > i && allNatureLocation.get(i) != null) {
-                List<LocationPoint> locationPoints = cityNatureAPIService.getByNatureLocationName(allNatureLocation.get(i));
-                for (LocationPoint point : locationPoints) {
-                    if (visitorDataList.size()>0) {
-                        for(int q = 0; q < visitorDataList.size(); q++) {
-                                if ((visitorDataList.get(q).getLat()+"|"+visitorDataList.get(q).getLng()).equalsIgnoreCase((point.getLat()+"|"+point.getLng()))) {
-
-                                } else {
-                                    randomDay = minDay + rand.nextInt(maxDay - minDay);
-                                    LocalDate randomDate = LocalDate.ofEpochDay(randomDay);
-                                    VisitorData data = new VisitorData();
-                                    data.setLng(point.getLng());
-                                    data.setLat(point.getLat());
-                                    data.setVisits(rand.nextInt(95));
-                                    int startTime = rand.nextInt(20);
-                                    data.setStartTime(randomDate.atTime(startTime, 0));
-                                    data.setEndTime(randomDate.atTime((startTime + 1), 0));
-                                    data.setLocationName(point.getName());
-                                    visitorDataList.add(data);
-                                }
-                        }
-                    } else {
-                        randomDay = minDay + rand.nextInt(maxDay - minDay);
-                        LocalDate randomDate = LocalDate.ofEpochDay(randomDay);
-                        VisitorData data = new VisitorData();
-                        data.setLng(point.getLng());
-                        data.setLat(point.getLat());
-                        data.setVisits(rand.nextInt(95));
-                        int startTime = rand.nextInt(20);
-                        data.setStartTime(randomDate.atTime(startTime, 0));
-                        data.setEndTime(randomDate.atTime((startTime + 1), 0));
-                        data.setLocationName(point.getName());
-                        visitorDataList.add(data);
-                    }
-
-                }
-            }
-        }
+        /*try {
+            fileHelper.getVisitorsData();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }*/
     }
 }

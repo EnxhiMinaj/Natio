@@ -29,6 +29,7 @@ public class PersonalizerService {
      */
     public List<String> runPersonalizer(List<String> allTrailNames, List<String> userTrailNames){
         PersonalizationClientImpl client = initializePersonalizationClient(SERVICE_ENDPOINT, API_KEY);
+
         String eventId = java.util.UUID.randomUUID().toString();
         RankRequest personalizationRequest = new RankRequest()
                 .withActions(PersonalizerHelper.getActions(allTrailNames))
@@ -38,18 +39,10 @@ public class PersonalizerService {
         RankResponse response = client.rank(personalizationRequest);
 
         List<String> suggestedTrailNames = new ArrayList<>();
-        suggestedTrailNames.add(response.ranking().get(0).id());
-        // Get top three suggested trail names
-        for(int index = 0; index < 2; index++){
-            allTrailNames.remove(allTrailNames.indexOf(response.ranking().get(0).id()));
-            eventId = java.util.UUID.randomUUID().toString();
-            personalizationRequest = new RankRequest()
-                    .withActions(PersonalizerHelper.getActions(allTrailNames))
-                    .withContextFeatures(PersonalizerHelper.getFeatures(userTrailNames))
-                    .withEventId(eventId);
 
-            response = client.rank(personalizationRequest);
-            suggestedTrailNames.add(response.ranking().get(0).id());
+        // Get top three suggested trail names
+        for(int index = 0; index < 3; index++){
+            suggestedTrailNames.add(response.ranking().get(index).id());
         }
         return suggestedTrailNames;
     }
