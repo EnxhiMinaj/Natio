@@ -4,6 +4,7 @@ import {NatureLocationComponent} from './nature-location.component';
 import {NatureLocationRoutingModule} from "./nature-location-routing.module";
 import {CustomMaterialModule} from "../../core/module/CustomMaterialModule";
 import {ExploreTrailsService} from "../../app-services/explore-trails.service";
+import {MyTripsService} from "../../app-services/my-trips.service";
 
 @NgModule({
   imports: [
@@ -13,7 +14,7 @@ import {ExploreTrailsService} from "../../app-services/explore-trails.service";
   ],
   declarations: [NatureLocationComponent],
   providers: [
-    ExploreTrailsService
+    ExploreTrailsService, MyTripsService
   ],
 })
 export class NatureLocationModule { }

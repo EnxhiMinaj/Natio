@@ -4,6 +4,8 @@ import {LOCATION_POINT_DETAILS, NATIO} from "../../core/utility/navigation-url";
 import {ExploreTrailsService} from "../../app-services/explore-trails.service";
 import {ResponseModel} from "../../core/lib/model/response.model";
 import {LocationPointsModel} from "../../models/location-points.model";
+import {MyTripsService} from "../../app-services/my-trips.service";
+import {LocationModel} from "../../models/location.model";
 
 
 
@@ -17,10 +19,13 @@ export class NatureLocationComponent implements OnInit {
 
   locationPoints: LocationPointsModel[] = [];
   placeName:string;
+  locationModel: LocationModel = new LocationModel();
+  showMsgBox:boolean = false;
   constructor(
               private _router: Router,
               private route: ActivatedRoute,
-              private _exploreService: ExploreTrailsService
+              private _exploreService: ExploreTrailsService,
+              private _myTripService: MyTripsService
 
   ) {
     this.route.params.subscribe( params => {
@@ -61,6 +66,36 @@ export class NatureLocationComponent implements OnInit {
 
       }
     })
+  }
+
+  onSubmit() {
+      console.log(this.locationModel);
+      for(let i=0; i<this.locationPoints.length; i++) {
+        let locationPoint = this.locationPoints[i];
+        let newLocationPointArr: LocationPointsModel[] = [];
+        if(locationPoint.checked) {
+          newLocationPointArr.push(locationPoint);
+        }
+        this.locationModel.locationPointList = newLocationPointArr;
+      }
+
+      this._myTripService.saveLocation(this.locationModel).then((res:ResponseModel) =>{
+          if(res.responseStatus){
+            this.locationModel = new  LocationModel();
+            this.clearCheckBox();
+            alert("Your trip has been saved successfully.");
+          }
+      });
+  }
+
+  clearCheckBox(){
+    for(let i=0; i<this.locationPoints.length; i++) {
+      let locationPoint = this.locationPoints[i];
+      if(locationPoint.checked) {
+        locationPoint.checked = false;
+      }
+
+    }
   }
 
 }
