@@ -8,7 +8,9 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.sql.Time;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -23,6 +25,12 @@ public class LocationEntity extends EntityBase {
     private String pointInfo;
     @Column(name = "name")
     private String name;
+    @Column(name = "date")
+    private Date date;
+    @Column(name = "start_time")
+    private Time startTime;
+    @Column(name = "end_time")
+    private Time endTime;
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")

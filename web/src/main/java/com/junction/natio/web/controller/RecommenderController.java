@@ -1,5 +1,6 @@
 package com.junction.natio.web.controller;
 
+import com.junction.natio.azure.service.PersonalizerService;
 import com.junction.natio.core.constant.WebResourceConstant;
 import com.junction.natio.core.controller.ControllerBase;
 import com.junction.natio.core.model.ResponseObj;
@@ -19,9 +20,11 @@ import java.util.List;
 public class RecommenderController {
     public static final String BASE_URL = WebResourceConstant.NATIO.RECOMMENDER;
     private IRecommenderService recommenderService;
+    private PersonalizerService personalizerService;
 
-    public RecommenderController(IRecommenderService recommenderService) {
+    public RecommenderController(IRecommenderService recommenderService, PersonalizerService personalizerService) {
         this.recommenderService = recommenderService;
+        this.personalizerService = personalizerService;
     }
 
     @GetMapping(WebResourceConstant.NATIO.GET_CHART_DATA)
@@ -33,6 +36,12 @@ public class RecommenderController {
         ChartDataDto result = recommenderService.getVisitorData(period, hourValue, dayValue);
 
         return new ResponseEntity<>(new ResponseObj.ResponseObjBuilder().result(result).message("Success").build(), HttpStatus.OK);
+    }
+
+    @GetMapping(WebResourceConstant.NATIO.GET_RECOMMENDED_PLACES)
+    public ResponseEntity<ResponseObj> getRecommendedPlaces() {
+
+        return new ResponseEntity<>(new ResponseObj.ResponseObjBuilder().result("Test").message("Success").build(), HttpStatus.OK);
     }
 
 

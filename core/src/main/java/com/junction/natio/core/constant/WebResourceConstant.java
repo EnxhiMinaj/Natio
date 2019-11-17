@@ -52,11 +52,14 @@ public class WebResourceConstant {
         String NATIO_BASE = BASE_API + "/natio";
         String USER = NATIO_BASE + "/user";
         String LOCATION = NATIO_BASE + "/location";
+        String MY_TRIPS = "/{userId}/trips";
         String RECOMMENDER = NATIO_BASE + "/recommender";
         String GET_CHART_DATA = "/data";
         String NATIO_NATURE_LOCATIONS = NATIO_BASE + "/nature-locations";
         String NATIO_NATURE_LOCATIONS_GET_ALL = "/get-all";
         String NATIO_NATURE_LOCATIONS_POINTS = "/get-location-point/{natureLocation}";
+        String GET_RECOMMENDED_PLACES = "/get-recommended-places";
+        String SAVE_LOCATION = "/save-trips";
 
     }
 

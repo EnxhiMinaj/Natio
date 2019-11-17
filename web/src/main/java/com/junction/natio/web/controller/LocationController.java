@@ -3,14 +3,17 @@ package com.junction.natio.web.controller;
 import com.junction.natio.core.constant.WebResourceConstant;
 import com.junction.natio.core.exception.NatioException;
 import com.junction.natio.core.model.ResponseObj;
+import com.junction.natio.core.utils.DateUtils;
+import com.junction.natio.web.dto.requestDto.LocationRequestDto;
 import com.junction.natio.web.model.LocationEntity;
+import com.junction.natio.web.model.LocationPoint;
 import com.junction.natio.web.service.ILocationService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -23,13 +26,21 @@ public class LocationController {
 
         this.locationService = locationService;
     }
-    @GetMapping(WebResourceConstant.GET_ALL)
-    public ResponseEntity<ResponseObj> getAll() {
-        List<LocationEntity> entities = this.locationService.findAll();
+    @GetMapping(WebResourceConstant.NATIO.MY_TRIPS)
+    public ResponseEntity<ResponseObj> getMyTrips(@PathVariable Long userId) {
+        List<LocationEntity> entities = this.locationService.getByUserId(userId);
         if (entities.size() == 0) {
             throw new NatioException("Sorry!! No Records Found");
         }
         return new ResponseEntity<>(new ResponseObj.ResponseObjBuilder().result(entities).message("Success").build(), HttpStatus.OK);
     }
+
+    @PostMapping(WebResourceConstant.NATIO.SAVE_LOCATION)
+    public ResponseEntity<ResponseObj> saveTrips(@RequestBody @Valid LocationRequestDto dto) {
+        locationService.saveTrips(dto);
+        return new ResponseEntity<>(new ResponseObj.ResponseObjBuilder().message("Records have been created.").build(), HttpStatus.OK);
+    }
+
+
 
 }
