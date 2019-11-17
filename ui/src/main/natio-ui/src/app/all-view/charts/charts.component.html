@@ -1,9 +1,21 @@
-<h3>Korpinkierros, 8 km Circle Trail</h3>
+<h3>Korpinkierros</h3>
+<div class="nature-location-loc-wrapper">
+  <p class="nature-location-loc"><mat-icon>location_on</mat-icon>Nuuksio National Park</p>
+</div>
+
 <p class="description">
-  Estimated time 4 h, no winter maintenance.
-  A challenging trail.
-  Starting Points: Haukkalampi, Address: Haukkalammentie 32, 02820 Espoo and Siikaniemi, Siikajärvenranta, Espoo.
+  Korpinkierros impresses even the experienced hiker with its cliffs and diverse natural environment. Explore the herb-rich forests and be enchanted by the ponds.
 </p>
+
+<mat-form-field class="select-range">
+  <mat-label>Select a filter type</mat-label>
+  <select matNativeControl required>
+    <option value="hourly">Hourly</option>
+    <option value="daily">Daily</option>
+    <option value="monthly">Monthly</option>
+  </select>
+</mat-form-field>
+
 <mat-card class="example-card">
   <mat-card-content>
     <div #charts></div>
