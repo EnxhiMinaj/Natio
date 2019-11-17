@@ -7,6 +7,8 @@
         <module>core</module>
         <module>ui</module>
         <module>web</module>
+        <module>azure-cognitive-personalizer</module>
+        <module>azure-cognitive-text-moderation</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
