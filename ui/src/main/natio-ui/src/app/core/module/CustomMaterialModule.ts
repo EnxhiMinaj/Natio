@@ -23,6 +23,8 @@ import {BarRatingModule} from "ngx-bar-rating";
 import {NgxMaterialTimepickerModule} from "ngx-material-timepicker";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TimecounterModule} from "../lib/timecounter/timecounter";
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 
 @NgModule({
   imports: [
@@ -49,7 +51,8 @@ import {TimecounterModule} from "../lib/timecounter/timecounter";
     MatSnackBarModule,
     MatDialogModule,
     MatTableModule,
-    TimecounterModule
+    TimecounterModule,
+    MatPaginatorModule
   ],
   exports: [
     MatButtonModule,
@@ -74,7 +77,8 @@ import {TimecounterModule} from "../lib/timecounter/timecounter";
     MatSnackBarModule,
     MatDialogModule,
     MatTableModule,
-    TimecounterModule
+    TimecounterModule,
+    MatPaginatorModule
   ],
 })
 export class CustomMaterialModule {
