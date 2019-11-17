@@ -9,7 +9,8 @@ import {ApiConstant} from "../../utility/api.constant";
 @Injectable()
 export class HttpService {
   baseApi: string = ApiConstant.BASE_API;
-
+  reverseGeoLocationApiPart1 = 'https://api.opencagedata.com/geocode/v1/json?key=4a6d990afb604104879735748a5627fa&q=';
+  reverseGeoLocationApiPart2 = '&pretty=1&no_annotations=1';
   constructor(private _http: HttpClient) {
   }
 
@@ -48,6 +49,12 @@ export class HttpService {
   catchError(error: HttpErrorResponse) {
     console.log(error);
     return Observable.throw(JSON.stringify(error)).toPromise();
+  }
+
+  getLocation(lat, lng) {
+    return this._http.get(this.reverseGeoLocationApiPart1+ lat+"+"+lng+this.reverseGeoLocationApiPart2).toPromise()
+    // .map((response: HttpResponse) => response))
+      .catch(this.catchError);
   }
 
 }

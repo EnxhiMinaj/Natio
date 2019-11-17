@@ -56,9 +56,9 @@ public class CityNatureAPIServiceImpl implements ICityNatureAPIService {
                 JsonNode pointsNodeArr = natureNode.path("points");
                 List<LocationPoint> locationPoints = new ArrayList<>();
                 if (pointsNodeArr.isArray()) {
-                    LocationPoint locationPointEntity = new LocationPoint();
                     Iterator<JsonNode> pointNodeItr = pointsNodeArr.elements();
                     while(pointNodeItr.hasNext()){
+                        LocationPoint locationPointEntity = new LocationPoint();
                         JsonNode pointsNode = pointNodeItr.next();
                         JsonNode locationPoint = pointsNode.path("locationPoint");
                         locationPointEntity.setLat(locationPoint.path("lat").asText());

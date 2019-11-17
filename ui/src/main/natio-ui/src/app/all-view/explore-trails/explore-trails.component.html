@@ -2,10 +2,11 @@
 
   <mat-form-field class="select-region">
     <mat-label>Select a region</mat-label>
-    <select matNativeControl required>
-      <option value="helsinki">Helsinki Region</option>
-      <option value="lapland">Lapland</option>
-    </select>
+    <mat-select (selectionChange)="onRegionChange($event)" [(value)]="selected">
+      <mat-option value="none">None</mat-option>
+      <mat-option value="helsinki">Helsinki Region</mat-option>
+      <mat-option value="lapland">Lapland</mat-option>
+    </mat-select>
   </mat-form-field>
 
   <!--<div>
@@ -24,24 +25,27 @@
     </button>
 
   <div class="divider"></div>
-
-  <mat-card class="nature-location-card" (click)="openNatureLocation()">
+  <div *ngIf="placeNames.length!==0">
+  <mat-card class="nature-location-card" (click)="openNatureLocation(placeName)" *ngFor="let placeName of placeNames">
     <mat-card-header>
-      <mat-card-title>Nuuksio</mat-card-title>
+      <mat-card-title>{{placeName}}</mat-card-title>
       <mat-card-subtitle>National Park</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content class="nature-location-loc-wrapper">
-      <p class="nature-location-loc"><mat-icon>location_on</mat-icon>Uusimaa, Finland</p>
+      <p class="nature-location-loc"><mat-icon>location_on</mat-icon>Helsinki, Finland</p>
+    </mat-card-content>
+  </mat-card>
+  </div>
+
+  <mat-card class="nature-location-card" *ngIf="placeNames.length===0 && selected!='none'" >
+    <mat-card-content>
+      <p> Sorry, No records are available for selected placed.</p>
     </mat-card-content>
   </mat-card>
 
-  <mat-card class="nature-location-card">
-    <mat-card-header>
-      <mat-card-title>Pallas-Yllästunturi</mat-card-title>
-      <mat-card-subtitle>National Park</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content class="nature-location-loc-wrapper">
-      <p class="nature-location-loc"><mat-icon>location_on</mat-icon>Lapland, Finland</p>
+  <mat-card class="nature-location-card" *ngIf="selected==='none'" >
+    <mat-card-content>
+      <p> Please select one place from the dropdown.</p>
     </mat-card-content>
   </mat-card>
 

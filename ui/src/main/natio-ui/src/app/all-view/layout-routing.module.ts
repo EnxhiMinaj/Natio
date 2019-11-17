@@ -1,7 +1,7 @@
 import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
 import {LayoutComponent} from "./layout.component";
-import {CHARTS, CHATS, MAIN_URL, MY_TRIPS, SUGGESTIONS, NATURE_LOCATION, LOCATION_POINT_DETAILS, CHAT_CHANNEL} from "../core/utility/navigation-url";
+import {CHARTS, CHATS, MAIN_URL, MY_TRIPS, SUGGESTIONS, NATURE_LOCATION_EXT, LOCATION_POINT_DETAILS, CHAT_CHANNEL} from "../core/utility/navigation-url";
 
 const routes: Routes = [
   {
@@ -15,7 +15,7 @@ const routes: Routes = [
       {path: LOCATION_POINT_DETAILS, loadChildren: './charts/charts.module#ChartsGraphModule'},
       {path: CHATS, loadChildren: './group-channels/group-channels.module#GroupChannelsModule'},
       {path: CHARTS, loadChildren: './charts/charts.module#ChartsGraphModule'},
-      {path: NATURE_LOCATION, loadChildren: './nature-location/nature-location.module#NatureLocationModule'},
+      {path: NATURE_LOCATION_EXT, loadChildren: './nature-location/nature-location.module#NatureLocationModule'},
       {path: CHAT_CHANNEL, loadChildren: './chats/chats.module#ChatsModule'}
     ]
   }
