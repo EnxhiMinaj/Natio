@@ -69,6 +69,7 @@ export class SignUpComponent implements OnInit {
   }
 
   onSignUp() {
+    console.log("hello");
     this.showErrMsg = "";
     this.showSuccessMsg = "";
     if (this.signUpFormGroup.valid) {

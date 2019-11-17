@@ -74,4 +74,11 @@ public class UserController extends ControllerBase {
         return new ResponseEntity<>(new ResponseObj.ResponseObjBuilder().message("Your account has been created. Please go to login page to sign in.").build(), HttpStatus.OK);
     }
 
+    @PostMapping(WebResourceConstant.UserManagement.EMAIL)
+    public ResponseEntity<ResponseObj> verifyUserByEmail(@RequestBody @Valid UserEmailRequestDto userEmailRequestDto) {
+        UserEntity userEntity = this.userService.findByEmail(userEmailRequestDto.getEmail());
+
+        return new ResponseEntity<>(new ResponseObj.ResponseObjBuilder().result(userEntity != null).build(), HttpStatus.OK);
+    }
+
 }
