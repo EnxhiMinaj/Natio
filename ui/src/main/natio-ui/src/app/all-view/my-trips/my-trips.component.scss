@@ -1,173 +1,30 @@
-#find-job /deep/ .mat-tab-label, #find-job /deep/ .mat-tab-label-active {
-  min-width: 50% !important;
-  width: 50% !important;
-  background-color: rgba(0, 0, 0, 0.4);
-  color: white;
+.location-point-loc > mat-icon, .nature-location-loc > mat-icon{
+  font-size: 15px;
+  height: 20px;
+  width: 20px;
 }
 
-/deep/ .content {
-  top: 56px !important;
+.location-point-loc, .nature-location-loc{
+  color: #48bdb8;
+  text-align: right;
 }
 
-#find-job .mat-expansion-panel-spacing {
-  margin: 0px;
+.location-point-loc-wrapper, .nature-location-loc-wrapper{
+  margin-top: -30px;
 }
 
-#find-job /deep/ .mat-expansion-panel-body {
-  background: #e2e2e2;
-}
-
-#find-job .mat-stroked-button {
-  border-color: #e78666;
-}
-
-#find-job .mat-button.mat-warn, .mat-icon-button.mat-warn, .mat-stroked-button.mat-warn {
-  color: #e78666;
-}
-
-#find-job .mat-stroked-button:active {
-  background-color: #e78666;
-}
-
-#find-job .mat-button.mat-warn, #find-job .mat-icon-button.mat-warn, #find-job .mat-stroked-button.mat-warn:active {
-  color: #ffffff;
-}
-
-#find-job .mat-stroked-button:hover {
-  background-color: #e78666;
-}
-
-#find-job .mat-button.mat-warn, #find-job .mat-icon-button.mat-warn, #find-job .mat-stroked-button.mat-warn:hover {
-  color: #ffffff;
-}
-
-#find-job .mat-expansion-panel-header-description {
-  flex-grow: 0;
-  color: #13dc13;
-}
-
-#find-job .temp-credit-icon, #find-job .credit-amount {
-  color: green;
-}
-
-#find-job .temp-credit-icon {
-  margin-left: 2px;
-}
-
-agm-map {
-  height: 800px;
-}
-.agm-map-container-inner .sebm-google-map-container-inner{
-  overflow: visible;
-}
-
-#find-job .right-img {
-  float: right;
-}
-
-#find-job .right-img {
-  margin-top: 9px;
-  font-style: italic;
-}
-
-#find-job .class-left {
-  display: inline;
-  float: left
-}
-
-#find-job .countdown-date {
-  text-align: center;
-  margin-right: 2px;
-  color: #ED6C41;
-}
-
-#find-job .temp-credit-icon, #find-job .credit-amount {
-  color: green;
-}
-
-#find-job .temp-credit-icon {
-  margin-left: 2px;
-}
-
-#find-job /deep/ .mat-expansion-panel-body {
-  background: lightgrey;
-  //padding: 0px !important;
-}
-
-#find-job .mat-expansion-panel-spacing {
-  margin: 0px;
-}
-
-#find-job /deep/ .mat-expansion-indicator {
-  position: absolute;
-  left: 15px;
-}
-
-#find-job /deep/ .mat-expansion-indicator:after {
-  color: #ED6C41;
-}
-
-#find-job .mat-expansion-panel-header-title {
-  margin-left: 1em;
+p.nature-location-loc{
   margin-top: 5px;
-  font-weight: 600;
 }
 
-
-#find-job /deep/ .mat-expansion-indicator {
-  position: absolute;
-  left: 15px;
+p.location-point-loc{
+  margin-bottom: 5px;
 }
 
-#find-job /deep/ .mat-expansion-indicator:after {
-  color: #ED6C41;
+.location-point-loc-wrapper{
+  font-size: 12px;
 }
 
-#find-job .mat-expansion-panel-header-title {
-  margin-left: 1em;
-  margin-top: 5px;
-  font-weight: 600;
-}
-
-#find-job .find-view-text-color {
-  color: #7c7070;
-}
-
-#find-job .lib-countdown-td {
-  text-align: center;
-  margin-right: 2px;
-  color: #ED6C41;
-}
-
-#find-job .job-status {
-  color: #ED6C41;
-
-}
-
-.ng-star.inserted {
-  height: 100% !important;
-}
-
-mat-tab-group#find-job {
-  height: 100% !important;
-}
-
-#find-job /deep/ agm-map {
-  height: -webkit-fill-available !important;
-}
-
-#find-job /deep/ .agm-map-container-inner > div {
-  height: -webkit-fill-available !important;
-}
-
-#find-job /deep/ .gm-style {
-  height: -webkit-fill-available !important;
-}
-
-#find-job #apply-btn {
-  background: white;
-}
-
-#find-job .desc-st {
-  font-weight: bold;
+.location-point-card{
+  margin-bottom: 10px;
 }
