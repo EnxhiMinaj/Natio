@@ -1,5 +1,6 @@
 package com.junction.natio.web.util.impl;
 
+import com.junction.natio.web.model.VisitorData;
 import com.junction.natio.web.util.IFileHelper;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -20,6 +21,7 @@ import org.apache.poi.ss.usermodel.Row;
 @Service
 public class FileHelperImpl implements IFileHelper {
 
+    List<VisitorData> visitorDataList = new ArrayList<>();
     private static final char DEFAULT_SEPARATOR = ',';
     private static final char DEFAULT_QUOTE = '"';
 
@@ -34,16 +36,22 @@ public class FileHelperImpl implements IFileHelper {
         XSSFSheet sheet = workbook.getSheetAt(0);
         // we iterate on rows
         Iterator<Row> rowIt = sheet.iterator();
-
-        while(rowIt.hasNext()) {
+        int i = 0;
+        while(i < 3) {
             Row row = rowIt.next();
             // iterate on cells for the current row
             Iterator<Cell> cellIterator = row.cellIterator();
-
-            while (cellIterator.hasNext()) {
-                Cell cell = cellIterator.next();
-                System.out.print(cell.toString() + ";");
+            int k = 0;
+            VisitorData data = new VisitorData();
+            while (i != 0 && cellIterator.hasNext()) {
+                if (i != 0 ) {
+                    Cell cell = cellIterator.next();
+                    visitorDataList.add(data);
+                    k = k+1;
+                    System.out.print(cell.toString() + ";");
+                }
             }
+            i++;
         }
 
         workbook.close();
@@ -142,4 +150,5 @@ public class FileHelperImpl implements IFileHelper {
 
         return result;
     }
+
 }
