@@ -5,6 +5,8 @@ import {LayoutComponent} from "./layout.component";
 import {CustomMaterialModule} from "../core/module/CustomMaterialModule";
 import {SessionStorageService} from "../core/lib/services/session-storage.service";
 import {LayoutStructureModule} from "./layout-structure/layout-structure/layout-structure.module";
+import {UserProfileService} from "../app-services/user-profile.service";
+import {LoginService} from "../app-services/login.service";
 
 @NgModule({
   imports: [
@@ -14,7 +16,7 @@ import {LayoutStructureModule} from "./layout-structure/layout-structure/layout-
     LayoutStructureModule
   ],
   declarations: [LayoutComponent],
-  providers: [SessionStorageService]
+  providers: [ UserProfileService, LoginService, SessionStorageService]
 })
 export class LayoutModule {
 }

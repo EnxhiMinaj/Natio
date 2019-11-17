@@ -30,6 +30,14 @@ public class UserServiceImpl extends CrudServiceImpl<UserEntity, Long> implement
     }
 
     @Override
+    public UserEntity save(UserEntity entity) {
+        String encodedPassword = imatraEncoder.encrypt(entity.getPassword());
+        entity.setPassword(encodedPassword);
+
+        return super.save(entity);
+    }
+
+    @Override
     public UserEntity authenticate(UserEntity userEntity) {
         System.out.println("encoded password: " + imatraEncoder.encrypt("admin"));
         UserEntity userToAuthenticate = this.userRepository.findByEmail(userEntity.getEmail());
@@ -53,6 +61,9 @@ public class UserServiceImpl extends CrudServiceImpl<UserEntity, Long> implement
         }
         throw new NatioException("Old Password Didn't match.");
     }
+
+
+
 
     @Override
     public UserEntity findByEmail(String email) {

@@ -54,6 +54,9 @@ public class WebResourceConstant {
         String LOCATION = NATIO_BASE + "/location";
         String RECOMMENDER = NATIO_BASE + "/recommender";
         String GET_CHART_DATA = "/data";
+        String NATIO_NATURE_LOCATIONS = NATIO_BASE + "/nature-locations";
+        String NATIO_NATURE_LOCATIONS_GET_ALL = "/get-all";
+        String NATIO_NATURE_LOCATIONS_POINTS = "/get-location-point/{natureLocation}";
 
     }
 
