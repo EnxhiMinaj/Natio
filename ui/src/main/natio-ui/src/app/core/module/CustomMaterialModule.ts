@@ -24,6 +24,7 @@ import {NgxMaterialTimepickerModule} from "ngx-material-timepicker";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TimecounterModule} from "../lib/timecounter/timecounter";
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatDialogModule,
     MatTableModule,
     TimecounterModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSlideToggleModule
   ],
   exports: [
     MatButtonModule,
@@ -78,7 +80,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatDialogModule,
     MatTableModule,
     TimecounterModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSlideToggleModule
   ],
 })
 export class CustomMaterialModule {
