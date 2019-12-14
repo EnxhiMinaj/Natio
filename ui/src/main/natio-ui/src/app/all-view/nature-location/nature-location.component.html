@@ -30,9 +30,9 @@
   <div *ngFor="let locationPoint of locationPoints; let i = index">
   <div style="margin-top: 20px; display: table; width: 100%;" >
         <mat-checkbox [(ngModel)]="locationPoint['checked']"></mat-checkbox>
-    <mat-card class="location-point-card" (click)="openLocationPointDetails()">
+    <mat-card class="location-point-card" (click)="openLocationPointDetails(locationPoint.name)">
       <mat-card-header>
-        <mat-card-title>Trail {{i+1}}</mat-card-title>
+        <mat-card-title>{{locationPoint.name}}</mat-card-title>
         <mat-card-subtitle>Hiking Trail</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content class="location-point-loc-wrapper">

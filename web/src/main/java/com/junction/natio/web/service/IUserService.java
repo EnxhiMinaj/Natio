@@ -14,6 +14,6 @@ public interface IUserService extends ICrudService<UserEntity, Long> {
 
     Boolean changePassword(String oldPassword, String newPassword, Long userId);
 
-
+    UserEntity getProfile(Long id);
     UserEntity findByEmail(String email);
 }

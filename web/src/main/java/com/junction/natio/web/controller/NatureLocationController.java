@@ -42,4 +42,13 @@ public class NatureLocationController {
         }
         return new ResponseEntity<>(new ResponseObj.ResponseObjBuilder().result(entities).message("Success").build(), HttpStatus.OK);
     }
+
+    @GetMapping(WebResourceConstant.NATIO.NATIO_NATURE_LOCATIONS_POINT_DETAILS)
+    public ResponseEntity<ResponseObj> getLocationDetails(@PathVariable String place, @PathVariable String trail) {
+        LocationPoint entity = cityNatureAPIService.getByNatureLocationNameAndTrail(place, trail);
+        if (entity == null) {
+            throw new NatioException("Sorry!! No Records Found");
+        }
+        return new ResponseEntity<>(new ResponseObj.ResponseObjBuilder().result(entity).message("Success").build(), HttpStatus.OK);
+    }
 }

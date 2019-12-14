@@ -1,11 +1,10 @@
-<h3>Korpinkierros</h3>
+<h3>{{trailName}}</h3>
+
 <div class="nature-location-loc-wrapper">
-  <p class="nature-location-loc"><mat-icon>location_on</mat-icon>Nuuksio National Park</p>
+  <p class="nature-location-loc"><mat-icon>location_on</mat-icon>{{placeName}}</p>
 </div>
 
-<p class="description">
-  Korpinkierros impresses even the experienced hiker with its cliffs and diverse natural environment. Explore the herb-rich forests and be enchanted by the ponds.
-</p>
+<br>
 
 <mat-form-field class="select-range">
   <mat-label>Select a filter type</mat-label>
@@ -21,3 +20,6 @@
     <div #charts></div>
   </mat-card-content>
 </mat-card>
+
+  <div [innerHTML]="locationPoint.pointInfo"></div>
+

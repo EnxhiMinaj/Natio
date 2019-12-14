@@ -36,12 +36,12 @@ public class AuthenticationHandlerInterceptor extends HandlerInterceptorAdapter 
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-//Do not delete the code
+       /* //Do not delete the code
         if (request.getMethod().equalsIgnoreCase("OPTIONS")) {
             return true;
         }
-        return true;
-        /*String uri = request.getRequestURI();
+        return true;*/
+        String uri = request.getRequestURI();
         String accessToken;
         //String origin = request.getHeader("Origin");
         response.setHeader("Access-Control-Allow-Origin", "*");
@@ -64,7 +64,7 @@ public class AuthenticationHandlerInterceptor extends HandlerInterceptorAdapter 
         }
 
 
-        return true;*/
+        return true;
     }
 
     private boolean isAuthFreeUri(String uri) {

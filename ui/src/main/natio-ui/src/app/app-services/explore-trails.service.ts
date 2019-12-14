@@ -12,6 +12,7 @@ export class ExploreTrailsService extends FTBaseService {
   mapApi: string = "http://your-api-url";
   getAllMainZonesApi: string = this.serviceApi + '/get-all';
   getAllLocationPointApi: string = this.serviceApi + '/get-location-point/';
+  getLocationDetailsApi: string = this.serviceApi + "/location-point-details/";
 
 
   constructor(httpService: HttpService) {
@@ -24,6 +25,10 @@ export class ExploreTrailsService extends FTBaseService {
 
   getLocationPointsByZoneName(zoneName:string) {
     return this.httpService.getRequest(this.getAllLocationPointApi + zoneName);
+  }
+
+  getLocationPointsDetails(zoneName: string, trailName: string) {
+    return this.httpService.getRequest(this.getLocationDetailsApi + zoneName + "/" + trailName);
   }
 
   getLocationByLatAndLng(lat,lng) {

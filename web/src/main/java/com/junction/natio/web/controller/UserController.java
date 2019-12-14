@@ -49,6 +49,17 @@ public class UserController extends ControllerBase {
         return new ResponseEntity<>(new ResponseObj.ResponseObjBuilder().message("Password has been Changed Successfully.").build(), HttpStatus.OK);
     }
 
+    @GetMapping(WebResourceConstant.UserManagement.PROFILE)
+    public ResponseEntity<ResponseObj> getUserProfile() {
+        TokenModel tokenModel = TokenUtils.getTokenModel();
+
+        if (tokenModel == null) {
+            throw new NatioException("Your session has been expired. Please sign in and try again");
+        }
+        UserEntity entities = userService.getProfile(tokenModel.getUserId());
+        return new ResponseEntity<>(new ResponseObj.ResponseObjBuilder().result(resBeanMapper.mapToDTO(entities)).message("Success").build(), HttpStatus.OK);
+    }
+
     @PostMapping(WebResourceConstant.UserManagement.UM_AUTHENTICATE)
     public ResponseEntity<ResponseObj> authenticateUser(@RequestBody @Valid UserLoginRequestDto userLoginRequestDto) {
         UserEntity userEntity = new UserEntity();

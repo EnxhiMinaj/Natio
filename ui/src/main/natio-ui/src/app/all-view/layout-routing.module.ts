@@ -1,7 +1,17 @@
 import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
 import {LayoutComponent} from "./layout.component";
-import {CHARTS, CHATS, MAIN_URL, MY_TRIPS, SUGGESTIONS, NATURE_LOCATION_EXT, LOCATION_POINT_DETAILS, CHAT_CHANNEL} from "../core/utility/navigation-url";
+import {
+  CHARTS,
+  CHATS,
+  MAIN_URL,
+  MY_TRIPS,
+  SUGGESTIONS,
+  NATURE_LOCATION_EXT,
+  LOCATION_POINT_DETAILS,
+  CHAT_CHANNEL,
+  LOCATION_POINT_DETAILS_EXT
+} from "../core/utility/navigation-url";
 
 const routes: Routes = [
   {
@@ -12,7 +22,7 @@ const routes: Routes = [
       {path: MAIN_URL, loadChildren: './explore-trails/explore-trails.module#ExploreTrailsModule'},
       {path: MY_TRIPS, loadChildren: './my-trips/my-trips.module#MyTripsModule'},
       {path: SUGGESTIONS, loadChildren: './suggestions/suggestions.module#SuggestionsModule'},
-      {path: LOCATION_POINT_DETAILS, loadChildren: './charts/charts.module#ChartsGraphModule'},
+      {path: LOCATION_POINT_DETAILS_EXT, loadChildren: './charts/charts.module#ChartsGraphModule'},
       {path: CHATS, loadChildren: './group-channels/group-channels.module#GroupChannelsModule'},
       {path: CHARTS, loadChildren: './charts/charts.module#ChartsGraphModule'},
       {path: NATURE_LOCATION_EXT, loadChildren: './nature-location/nature-location.module#NatureLocationModule'},

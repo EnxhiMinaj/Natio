@@ -40,8 +40,8 @@ export class NatureLocationComponent implements OnInit {
 
   }
 
-  openLocationPointDetails(){
-    let finalUrl = "/"+NATIO+  "/" + LOCATION_POINT_DETAILS;
+  openLocationPointDetails(name){
+    let finalUrl = "/"+NATIO+  "/" + LOCATION_POINT_DETAILS + "/" + this.placeName + "/"+ name;
     this._router.navigateByUrl(finalUrl);
   }
 
@@ -49,6 +49,7 @@ export class NatureLocationComponent implements OnInit {
     this._exploreService.getLocationPointsByZoneName(placeName).then((res:ResponseModel)=>{
         if(res.responseStatus){
           this.locationPoints = res.result;
+          console.log(this.locationPoints);
         } else {
           this.locationPoints = [];
         }

@@ -8,6 +8,7 @@ export const NATURE_LOCATION: string = 'nature-locations';
 export const NATURE_LOCATION_EXT: string = 'nature-locations/:place';
 export const CHATS: string = 'chats';
 export const LOCATION_POINT_DETAILS: string = 'location-point-details';
+export const LOCATION_POINT_DETAILS_EXT: string = "location-point-details/:place/:trail"
 export const WALLET_URL: string = 'wallet';
 export const CHARTS: string = 'charts';
 export const CHAT_CHANNEL: string = 'channel';

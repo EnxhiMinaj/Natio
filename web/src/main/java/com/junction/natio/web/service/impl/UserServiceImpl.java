@@ -62,7 +62,14 @@ public class UserServiceImpl extends CrudServiceImpl<UserEntity, Long> implement
         throw new NatioException("Old Password Didn't match.");
     }
 
-
+    @Override
+    public UserEntity getProfile(Long userId){
+        UserEntity umUserEntity = userRepository.findOne(userId);
+        if (umUserEntity != null){
+            return umUserEntity;
+        }
+        throw new NatioException("Internal server error! User data not available");
+    }
 
 
     @Override

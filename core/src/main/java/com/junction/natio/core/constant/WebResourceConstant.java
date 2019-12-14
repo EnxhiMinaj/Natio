@@ -43,6 +43,7 @@ public class WebResourceConstant {
         String UM_AUTHENTICATE = "/auth";
         String CHANGE_PASSWORD = "/chhangepassword";
         String EMAIL = "/email";
+        String PROFILE = "/profile";
         String SIGN_UP = "/sign-up";
 
 
@@ -58,6 +59,7 @@ public class WebResourceConstant {
         String NATIO_NATURE_LOCATIONS = NATIO_BASE + "/nature-locations";
         String NATIO_NATURE_LOCATIONS_GET_ALL = "/get-all";
         String NATIO_NATURE_LOCATIONS_POINTS = "/get-location-point/{natureLocation}";
+        String NATIO_NATURE_LOCATIONS_POINT_DETAILS = "location-point-details/{place}/{trail}";
         String GET_RECOMMENDED_PLACES = "/get-recommended-places";
         String SAVE_LOCATION = "/save-trips";
 
