@@ -50,8 +50,19 @@
   padding: 0 0 0 0;
   position: absolute;
   top:60px;
-  height: 80vh;
-  width: 93%;
+  height: 77%;
+  width: 90%;
   overflow-y: scroll;
   padding-right: 17px;
+}
+
+.channel-name {
+  font-weight: bold;
+  text-transform: capitalize;
+  font-size: larger;
+  color: #878787;
+}
+
+.channel {
+  text-align: center;
 }
