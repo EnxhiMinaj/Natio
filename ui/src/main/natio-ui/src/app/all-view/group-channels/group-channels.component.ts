@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Router} from "@angular/router";
-import {NATIO, CHAT_CHANNEL} from "../../core/utility/navigation-url";
+import {NATIO, CHAT_CHANNEL, CHANNEL} from "../../core/utility/navigation-url";
 
 
 @Component({
@@ -21,8 +21,8 @@ export class GroupChannelsComponent implements OnInit {
   ngOnInit() {
 
   }
-  openChannel(){
-    let finalUrl = "/"+NATIO+  "/" + CHAT_CHANNEL;
+  openChannel(channelName){
+    let finalUrl = "/"+NATIO+  "/" + CHANNEL +"/"+channelName;
     this._router.navigateByUrl(finalUrl);
   }
 

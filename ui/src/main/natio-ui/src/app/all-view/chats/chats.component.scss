@@ -42,3 +42,16 @@
 #chats /deep/ .mat-card-header .mat-card-title {
   font-size: 13px;
 }
+
+.chat-div {
+  list-style: none;
+  background: none;
+  margin: 0;
+  padding: 0 0 0 0;
+  position: absolute;
+  top:60px;
+  height: 80vh;
+  width: 93%;
+  overflow-y: scroll;
+  padding-right: 17px;
+}

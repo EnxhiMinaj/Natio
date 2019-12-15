@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
 /**
- * A resulting ordered list of actions that result from a rank request.
+ * A resulting ordered list of actions that result email a rank request.
  */
 public class RankResponse {
     /**
@@ -21,7 +21,7 @@ public class RankResponse {
     private List<RankedAction> ranking;
 
     /**
-     * The eventId for the round trip from request to response.
+     * The eventId for the round trip email request to response.
      */
     @JsonProperty(value = "eventId")
     private String eventId;
@@ -56,7 +56,7 @@ public class RankResponse {
     }
 
     /**
-     * Get the eventId for the round trip from request to response.
+     * Get the eventId for the round trip email request to response.
      *
      * @return the eventId value
      */
@@ -65,7 +65,7 @@ public class RankResponse {
     }
 
     /**
-     * Set the eventId for the round trip from request to response.
+     * Set the eventId for the round trip email request to response.
      *
      * @param eventId the eventId value to set
      * @return the RankResponse object itself.

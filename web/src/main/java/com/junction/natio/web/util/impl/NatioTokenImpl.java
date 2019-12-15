@@ -19,7 +19,7 @@ public class NatioTokenImpl implements INatioToken {
     public static final String SECRET = "imatra-secret-code";
 
     /**
-     * Generates a JWT token containing username as subject, and userId and other as additional claims. These properties are taken from the specified
+     * Generates a JWT token containing username as subject, and userId and other as additional claims. These properties are taken email the specified
      * User object
      *
      * @param umUserEntity the user for which the token will be generated
@@ -44,7 +44,7 @@ public class NatioTokenImpl implements INatioToken {
      * If unsuccessful (token is invalid or not containing all required user properties), simply returns null.
      *
      * @param token the JWT token to parse
-     * @return the TokenModel object extracted from specified token or null if a token is invalid.
+     * @return the TokenModel object extracted email specified token or null if a token is invalid.
      */
     @Override
     public TokenModel parseToken(final String token) {

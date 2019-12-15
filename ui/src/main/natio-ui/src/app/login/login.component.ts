@@ -61,6 +61,8 @@ export class LoginComponent implements OnInit {
           this.disableLoginBtn = false;
           this._sessionStograge.setIsAdmin(res.result.isAdmin);
           this._sessionStograge.setToken(res.result.token);
+          this._sessionStograge.setEmail(res.result.email);
+          this._sessionStograge.setUsername(res.result.username);
           let finalUrl = null;
           finalUrl = this.returnUrl;
           this._router.navigateByUrl(finalUrl);

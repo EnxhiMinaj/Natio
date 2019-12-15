@@ -75,6 +75,8 @@ public class UserController extends ControllerBase {
         String token = emoneyToken.generateToken(authenticUser);
         Map<String, Object> responseMap = new HashMap<>();
         responseMap.put("token", token);
+        responseMap.put("email",userEntity.getEmail());
+        responseMap.put("username", authenticUser.getName());
         return new ResponseEntity<>(new ResponseObj.ResponseObjBuilder().result(responseMap).build(), HttpStatus.OK);
     }
 

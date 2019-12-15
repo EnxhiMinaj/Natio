@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import {SwUpdate} from "@angular/service-worker";
 import {MatSnackBar} from "@angular/material";
+import * as SockJS from "sockjs-client";
+import * as Stomp from "stompjs";
+import {ApiConstant} from "./core/utility/api.constant";
+import {SessionStorageService} from "./core/lib/services/session-storage.service";
 
 @Component({
   selector: 'app-root',
@@ -10,12 +14,22 @@ import {MatSnackBar} from "@angular/material";
 export class AppComponent {
   title = 'Natio';
   promptEvent: any;
+  channels =[
+    'hiking-in-finland',
+    'Leivonmäki-National-Park',
+    'Nuuksio-National-Park',
+    'Oulanka-National-Park',
+    'Patvinsuo-National-Park'
+  ];
+  private serverUrl = ApiConstant.API_ROOT_URL + '/socket';
+  private stompClient;
 
-  constructor(private swUpdate: SwUpdate, private snackBar: MatSnackBar) {
+  constructor(private swUpdate: SwUpdate, private snackBar: MatSnackBar, private _sessionStorage: SessionStorageService) {
   }
   ngOnInit() {
     this.notifyNewVersion();
     this.pwaFunctions();
+    this.initWebSocketConnection();
   }
 
   /**
@@ -66,4 +80,50 @@ export class AppComponent {
       });
     });
   }
+
+  initWebSocketConnection() {
+    let that = this;
+    let ws = new SockJS(this.serverUrl);
+    this.stompClient = Stomp.over(ws);
+
+    ws.onclose = function () {
+      console.debug("Trying to reconnect...")
+      setTimeout(() => {
+        that.initWebSocketConnection();
+      }, 5000);
+
+    };
+
+    ws.onmessage = function(e) {
+      console.log('message', e.data);
+      ws.close();
+    };
+
+    this.stompClient.connect({}, function (frame) {
+        console.log("Connected.......");
+        for(let channel of that.channels) {
+          that.stompClient.subscribe("/order/"+ channel, (message) => {
+            if (message.body) {
+              let msg = JSON.parse(message.body);
+              if(msg.channel!== that._sessionStorage.getChannel() && msg.username!== that._sessionStorage.getUsername()){
+                that.snackBar.open('Channel - '+msg.channel +' user - '+ msg.username+ ': '+ msg.message, 'OK', {duration: 5000, verticalPosition: 'top'});
+                console.log(msg.message);
+              }
+
+            }
+          });
+        }
+
+      }, function (message) {
+        if (message.includes('Whoops')) {
+          setTimeout(() => {
+            that.initWebSocketConnection();
+          }, 5000);
+
+        }
+      }
+    );
+
+  }
+
 }

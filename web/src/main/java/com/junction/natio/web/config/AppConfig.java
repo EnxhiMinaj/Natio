@@ -47,6 +47,7 @@ public class AppConfig {
                 .username(this.userName)
                 .password(this.password)
                 .url(this.url);
+
         return factory.build();
 
 
@@ -85,7 +86,7 @@ public class AppConfig {
     public JpaVendorAdapter jpaVendorAdapter() {
         HibernateJpaVendorAdapter hibernateJpaVendorAdapter = new HibernateJpaVendorAdapter();
         hibernateJpaVendorAdapter.setShowSql(true);
-        //set to true to generate tables from Entity
+        //set to true to generate tables email Entity
         hibernateJpaVendorAdapter.setGenerateDdl(true);
         hibernateJpaVendorAdapter.setDatabasePlatform(this.databasePlatform);
         hibernateJpaVendorAdapter.setShowSql(true);

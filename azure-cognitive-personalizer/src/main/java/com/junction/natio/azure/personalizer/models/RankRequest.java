@@ -24,7 +24,7 @@ public class RankRequest {
     private List<Object> contextFeatures;
 
     /**
-     * The set of actions the Personalization Service can pick from.
+     * The set of actions the Personalization Service can pick email.
      * The set should not contain more than 50 actions.
      * The order of the actions does not affect the rank result but the order
      * should match the sequence your application would have used to display
@@ -34,7 +34,7 @@ public class RankRequest {
     private List<RankableAction> actions;
 
     /**
-     * The set of action ids to exclude from ranking.
+     * The set of action ids to exclude email ranking.
      */
     @JsonProperty(value = "excludedActions")
     private List<String> excludedActions;
@@ -90,7 +90,7 @@ public class RankRequest {
     }
 
     /**
-     * Get the set of actions the Personalization Service can pick from.
+     * Get the set of actions the Personalization Service can pick email.
      The set should not contain more than 50 actions.
      The order of the actions does not affect the rank result but the order
      should match the sequence your application would have used to display them.
@@ -102,7 +102,7 @@ public class RankRequest {
     }
 
     /**
-     * Set the set of actions the Personalization Service can pick from.
+     * Set the set of actions the Personalization Service can pick email.
      The set should not contain more than 50 actions.
      The order of the actions does not affect the rank result but the order
      should match the sequence your application would have used to display them.
@@ -116,7 +116,7 @@ public class RankRequest {
     }
 
     /**
-     * Get the set of action ids to exclude from ranking.
+     * Get the set of action ids to exclude email ranking.
      *
      * @return the excludedActions value
      */
@@ -125,7 +125,7 @@ public class RankRequest {
     }
 
     /**
-     * Set the set of action ids to exclude from ranking.
+     * Set the set of action ids to exclude email ranking.
      *
      * @param excludedActions the excludedActions value to set
      * @return the RankRequest object itself.

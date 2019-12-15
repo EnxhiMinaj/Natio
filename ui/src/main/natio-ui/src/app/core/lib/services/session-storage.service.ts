@@ -7,6 +7,9 @@ import {Injectable} from "@angular/core";
 @Injectable()
 export class SessionStorageService {
   public static TOKEN_KEY: string = 'appToken';
+  public static EMAIL:string="email";
+  public static CHANNEL:string="channel";
+  public static USERNAME:string="username";
   public static APP_KEY: string = 'appKey';
   public static CART: string = 'cart';
   public static IP: string = 'ip';
@@ -32,6 +35,30 @@ export class SessionStorageService {
 
   getIsAdmin() {
     return sessionStorage.getItem(SessionStorageService.APP_KEY);
+  }
+
+  setEmail(email) {
+    sessionStorage.setItem(SessionStorageService.EMAIL, email);
+  }
+
+  getEmail() {
+    return sessionStorage.getItem(SessionStorageService.EMAIL);
+  }
+
+  setChannel(channel) {
+    sessionStorage.setItem(SessionStorageService.CHANNEL, channel);
+  }
+
+  getChannel() {
+    return sessionStorage.getItem(SessionStorageService.CHANNEL);
+  }
+
+  setUsername(username) {
+    sessionStorage.setItem(SessionStorageService.USERNAME, username);
+  }
+
+  getUsername() {
+    return sessionStorage.getItem(SessionStorageService.USERNAME);
   }
 
   removeToken() {
